@@ -94,3 +94,15 @@
 .icon-large-chart{
 	background:url('icons/large_chart.png') no-repeat center center;
 }
+.icon-export-excel{
+	background:url('icons/ExportExcel.png') no-repeat center center;
+}
+.icon-import-excel{
+    background:url('icons/ImportExcel.png') no-repeat center center;
+}
+.icon-upload{
+    background:url('icons/upload.png') no-repeat center center;
+}
+.icon-download{
+    background:url('icons/download.png') no-repeat center center;
+}

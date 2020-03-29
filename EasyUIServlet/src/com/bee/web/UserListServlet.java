@@ -37,14 +37,24 @@ public class UserListServlet extends HttpServlet {
 		String page = request.getParameter("page");
 		String rows = request.getParameter("rows");
 
+		String searchKey = request.getParameter("searchVal");
+		System.out.println("查找：" + searchKey);
+
 		PageBean pageBean = new PageBean(Integer.parseInt(page), Integer.parseInt(rows));
 
 		Connection con = null;
 		try {
 			con = dbUtil.getConnection();
 			JSONObject result = new JSONObject();
-			JSONArray jsonArray = JsonUtil.formatRsToJsonArray(userDao.userList(con, pageBean));
-			int total = userDao.userCount(con);
+			JSONArray jsonArray = null;
+			int total = 0;
+			if (searchKey != null) {
+				jsonArray = JsonUtil.formatRsToJsonArray(userDao.userList(con, pageBean, searchKey));
+				total = userDao.userCount(con, searchKey);
+			} else {
+				jsonArray = JsonUtil.formatRsToJsonArray(userDao.userList(con, pageBean));
+				total = userDao.userCount(con);
+			}
 			result.put("rows", jsonArray);
 			result.put("total", total);
 			ResponseUtil.write(response, result);

@@ -59,4 +59,24 @@
         <servlet-name>userDelEdServlet</servlet-name>
         <url-pattern>/userDelEd</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>exportExcelServlet</servlet-name>
+        <servlet-class>com.bee.web.ExportExcelServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>exportExcelServlet</servlet-name>
+        <url-pattern>/exportExcel</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>uploadExcelServlet</servlet-name>
+        <servlet-class>com.bee.web.UserUploadServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>uploadExcelServlet</servlet-name>
+        <url-pattern>/fileUpload</url-pattern>
+    </servlet-mapping>
 </web-app>
